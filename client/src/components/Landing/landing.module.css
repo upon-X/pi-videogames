@@ -1,0 +1,22 @@
+:root {
+    --bgLandingCol2: #780096;
+    --bgLandingCol1: #9100b6;
+    --FFCaveat: 'Caveat', cursive;
+}
+
+.landing_page {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+}
+
+.col1 {
+    grid-column: 1;
+}
+
+.col2 {
+    grid-column: 2;
+    background-color: var(--bgLandingCol2);
+    height: 100vh;
+}
+
+.title {}
