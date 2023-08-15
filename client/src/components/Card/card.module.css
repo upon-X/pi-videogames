@@ -63,3 +63,9 @@
     text-align: center;
     font-size: 1.2rem;
 }
+
+.card_game:hover .title_name,
+.card_game:hover .title_genre,
+.card_game:hover .title_rating {
+    color: var(--colorGolden);
+}

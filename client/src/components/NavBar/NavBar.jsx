@@ -14,7 +14,7 @@ export default function Navbar({ handleFilterGenre, handleFilterCreated, handleR
             </div>
             <div className={styles.navbar_container}>
                 <select className={styles.select} onChange={(e) => handleSort(e)}>
-                    <option hidden value=''>Sort</option>
+                    <option value=''>Sort</option>
                     <option value='Asc'>A-Z</option>
                     <option value='Desc'>Z-A</option>
                 </select>

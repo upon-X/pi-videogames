@@ -25,12 +25,13 @@
 .button_container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     gap: 3rem;
 }
 
 .button_create_videogame,
-.button_about {
+.button_about,
+.button_reload {
     padding: 5px 10px;
     text-decoration: none;
     margin-top: 2rem;

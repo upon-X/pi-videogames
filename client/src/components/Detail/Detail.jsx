@@ -15,9 +15,6 @@ export default function Details() {
     function handleReset() {
         dispatch(getDetail());
     }
-    function removeBreakTags(input) {
-        return input.replace(/<br\s?\/?>/g, '');
-    }
     return (
         <div className={styles.details}>
             <div className={styles.container_detail}>

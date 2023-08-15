@@ -26,13 +26,12 @@ export default function Slider() {
                 <img
                     key={index}
                     src={image}
-                    alt={`Image ${index}`}
+                    alt={'imgs'}
                     style={{
                         transform: `translateX(-${currentImageIndex * 100}%)`
                     }}
                 />
             ))}
-
         </div>
     );
 }

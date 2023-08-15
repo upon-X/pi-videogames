@@ -70,13 +70,17 @@ export default function Home() {
         setCurrentPage(1);
         setOrder(e.target.value);
     }
+    function handleClick(e) {
+        e.preventDefault();
+        dispatch(getVideogames());
+    };
     return (
         <div className={styles.home}>
             <div className={styles.button_container}>
                 <Link className={styles.button_about} to='/about'>About</Link>
                 <Link className={styles.button_create_videogame} to='/videogame'>Create Videogame</Link>
+                <button className={styles.button_reload} onClick={(e) => { handleClick(e) }}>Reload🔄</button>
             </div>
-
             <div>
                 <Navbar
                     handleSort={handleSort}
