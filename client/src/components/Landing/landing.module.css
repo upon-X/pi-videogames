@@ -1,10 +1,9 @@
 :root {
-    --bgLandingCol2: #780096;
-    --bgLandingCol1: #9100b6;
+    --colorGolden: goldenrod;
+    --color1: #780096;
     --colorblacklight: rgb(32, 32, 32);
     --FFCaveat: 'Caveat', cursive;
     --FFComfortaa: 'Comfortaa', cursive;
-    --colorGolden: goldenrod;
 }
 
 .landing_page {
@@ -18,7 +17,7 @@
 
 .col2 {
     grid-column: 2;
-    background-color: var(--bgLandingCol2);
+    background-color: var(--color1);
     height: 100vh;
     text-align: center;
 }
@@ -41,7 +40,7 @@
     font-size: 1.2rem;
     text-decoration: none;
     text-transform: uppercase;
-    color: var(--bgLandingCol2);
+    color: var(--color2);
     transition: ease-in-out 0.1s;
 }
 
@@ -49,4 +48,27 @@
     border-radius: 10px;
     background-color: var(--colorblacklight);
     color: var(--colorGolden);
+}
+
+@media (max-width: 500px) {
+    .landing_page {
+        grid-template-rows: 2;
+        grid-template-columns: 1fr;
+    }
+
+    .col1 {
+        grid-column: auto;
+        grid-row: 1;
+        height: auto;
+    }
+
+    .col2 {
+        grid-column: auto;
+        grid-row: 2;
+        height: 60vh;
+    }
+
+    .title {
+        margin: 4rem;
+    }
 }

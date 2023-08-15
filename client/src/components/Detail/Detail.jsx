@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetail } from '../../redux/actions';
@@ -15,6 +14,11 @@ export default function Details() {
     function handleReset() {
         dispatch(getDetail());
     }
+
+    {/* Con esto saco los <p> </p> <br /> que trae la descripcion*/ }
+    const description = detail.description || detail.description_raw;
+    const textWithoutPTags = description.replace(/<\/?p>|<br\s?\/?>/g, '');
+
     return (
         <div className={styles.details}>
             <div className={styles.container_detail}>
@@ -32,8 +36,7 @@ export default function Details() {
                     </p>
                     <p className={styles.genres_detail}>Genres: {detail.genres?.map(g => g.name).join(' - ')}</p>
                     <p className={styles.rating_detail}>Rating: {detail.rating}</p>
-                    <p className={styles.description_detail}>Description: {detail.description || detail.description_raw}</p>
-                    {/* Con esto saco los <p></p> que trae la descripcion*/}
+                    <p className={styles.description_detail}>Description: {textWithoutPTags}</p>
                 </div>
             </div>
         </div >

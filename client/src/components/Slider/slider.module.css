@@ -16,3 +16,10 @@
     object-fit: cover;
     scroll-snap-align: center;
 }
+
+@media (max-width: 500px) {
+    .slider {
+        width: 100vw;
+        height: 40vh;
+    }
+}

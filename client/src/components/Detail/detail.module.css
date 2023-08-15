@@ -1,11 +1,6 @@
 :root {
     --colorGolden: goldenrod;
-    --color1: #780096;
-    --color2: #9100b6;
-    --color3: #450057;
     --colorblacklight: rgb(32, 32, 32);
-    --FFCaveat: 'Caveat', cursive;
-    --FFComfortaa: 'Comfortaa', cursive;
     --FFChakra: 'Chakra Petch', sans-serif;
     --bgradient: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(52, 7, 66, 1) 100%);
 }
@@ -26,7 +21,6 @@
     padding: 5px 10px;
     text-decoration: none;
     margin-top: 2rem;
-    text-decoration: none;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.877);
     justify-content: center;
@@ -64,7 +58,8 @@
 .image_detail {
     justify-content: center;
     margin-left: 2rem;
-    width: 400px;
+    aspect-ratio: 16/9;
+    width: 550px;
     height: 300px;
 }
 

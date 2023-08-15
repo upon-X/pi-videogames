@@ -1,20 +1,35 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
 import styles from './navbar.module.css'
+import { Link } from 'react-router-dom'
+import { /*useDispatch,*/ useSelector } from 'react-redux';
+// import { getVideogames } from '../../redux/actions';
 
 export default function Navbar({ handleFilterGenre, handleFilterCreated, handleRating, handleSort, handleFilterPlatforms }) {
     const allGenre = useSelector(state => state.genres);
     const allPlatforms = useSelector(state => state.platforms);
 
+    // const dispatch = useDispatch()
+    // function handleClick(e) {
+    //     e.preventDefault();
+    //     dispatch(getVideogames());
+    // };
+
     return (
         <div>
-            <div className={styles.navbar_searchbar}>
-                <SearchBar />
+            <div className={styles.buttons}>
+                <div className={styles.button_container}>
+                    <Link className={styles.button_about} to='/about'>About 💼</Link>
+                    <Link className={styles.button_create_videogame} to='/videogame'>Create Videogame 🎮</Link>
+                    {/* <button className={styles.button_reload} onClick={(e) => { handleClick(e) }}>Reload🔄</button> */}
+                </div>
+                <div>
+                    <SearchBar />
+                </div>
             </div>
             <div className={styles.navbar_container}>
                 <select className={styles.select} onChange={(e) => handleSort(e)}>
-                    <option value=''>Sort</option>
+                    <option hidden value=''>Sort</option>
                     <option value='Asc'>A-Z</option>
                     <option value='Desc'>Z-A</option>
                 </select>

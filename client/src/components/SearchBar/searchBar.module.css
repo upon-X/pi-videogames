@@ -1,3 +1,7 @@
+:root {
+    --colorGolden: goldenrod;
+}
+
 .search_container {
     position: relative;
     margin-top: 2rem;
@@ -15,7 +19,6 @@
 
 .search:hover {
     border: 2px solid var(--colorGolden);
-
 }
 
 .button_search {

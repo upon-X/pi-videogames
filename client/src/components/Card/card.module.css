@@ -1,10 +1,5 @@
 :root {
     --colorGolden: goldenrod;
-    --color1: #780096;
-    --color2: #9100b6;
-    --color3: #450057;
-    --colorblacklight: rgb(32, 32, 32);
-    --FFCaveat: 'Caveat', cursive;
     --FFComfortaa: 'Comfortaa', cursive;
     --bgradient: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(52, 7, 66, 1) 100%);
 }
@@ -45,17 +40,13 @@
     margin: 0.5rem;
 }
 
-.title_genre {
+.title_genre,
+.title_rating {
     text-align: center;
     text-transform: uppercase;
 }
 
 .genre {
-    text-align: center;
-}
-
-.title_rating {
-    text-transform: uppercase;
     text-align: center;
 }
 

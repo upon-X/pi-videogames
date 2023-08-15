@@ -1,13 +1,12 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getVideogames, getGenres, filterVideogamesByGenre, filterCreated, orderByName, orderByRating, getPlatforms, filterVideogamesByPlatforms } from '../../redux/actions';
 import { Link } from 'react-router-dom';
-import Card from '../Card/Card';
-import Paginado from '../Paginado';
-import Navbar from '../NavBar/NavBar';
-import Loader from '../Loader';
-import Sponsors from '../Sponsors/Sponsors'
+import Card from '../Card/Card.jsx';
+import Paginado from '../Paginado.jsx';
+import Navbar from '../NavBar/NavBar.jsx';
+import Loader from '../Loader.jsx';
+import Sponsors from '../Sponsors/Sponsors.jsx'
 import styles from './home.module.css'
 
 export default function Home() {
@@ -38,7 +37,7 @@ export default function Home() {
     function handleSort(e) {
         e.preventDefault();
         dispatch(orderByName(e.target.value))
-        setCurrentPage(1); //seteame la pagina a la 1ra
+        setCurrentPage(1);
         setOrder(e.target.value);
     };
     // Handle para filtrar por los generos
@@ -70,17 +69,9 @@ export default function Home() {
         setCurrentPage(1);
         setOrder(e.target.value);
     }
-    function handleClick(e) {
-        e.preventDefault();
-        dispatch(getVideogames());
-    };
+
     return (
         <div className={styles.home}>
-            <div className={styles.button_container}>
-                <Link className={styles.button_about} to='/about'>About</Link>
-                <Link className={styles.button_create_videogame} to='/videogame'>Create Videogame</Link>
-                <button className={styles.button_reload} onClick={(e) => { handleClick(e) }}>Reload🔄</button>
-            </div>
             <div>
                 <Navbar
                     handleSort={handleSort}

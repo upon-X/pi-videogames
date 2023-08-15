@@ -1,11 +1,6 @@
 :root {
     --colorGolden: goldenrod;
-    --color1: #780096;
-    --color2: #9100b6;
-    --color3: #450057;
     --colorblacklight: rgb(32, 32, 32);
-    --FFCaveat: 'Caveat', cursive;
-    --FFComfortaa: 'Comfortaa', cursive;
     --FFChakra: 'Chakra Petch', sans-serif;
 }
 
@@ -42,4 +37,44 @@
     opacity: 0.9;
     font-weight: bold;
     color: var(--colorGolden);
+}
+
+.button_create_videogame,
+.button_about,
+.button_reload {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-top: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.877);
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: var(--FFChakra);
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: black;
+}
+
+.button_about:hover,
+.button_create_videogame:hover,
+.button_reload:hover {
+    color: var(--colorGolden);
+    background-color: var(--colorblacklight);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.button_container {
+    display: flex;
+    gap: 2rem;
 }

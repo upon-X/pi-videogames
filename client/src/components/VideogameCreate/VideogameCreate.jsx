@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { postVideogame, getGenres } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import './videogameCreate.css';
+import styles from './videogameCreate.module.css';
 
 function validate(input) {
     let errors = {};
@@ -43,21 +43,18 @@ export default function VideogameCreate() {
             [e.target.name]: e.target.value
         }));
     }
-
     function handleSelectGenre(e) {
         setInput({
             ...input,
             genres: [...input.genres, e.target.value],
         })
     }
-
     function handleSelectPlatform(e) {
         setInput({
             ...input,
             platforms: [...input.platforms, e.target.value]
         })
     };
-
     function handleSubmit(e) {
         e.preventDefault();
         setErrors(
@@ -66,7 +63,6 @@ export default function VideogameCreate() {
                 [e.target.name]: e.target.value,
             })
         );
-
         if (Object.keys(errors).length === 0) {
             dispatch(postVideogame(input));
             alert('Videogame created 👌');
@@ -105,12 +101,12 @@ export default function VideogameCreate() {
 
     return (
         <>
-            <div className='home_container'>
-                <Link className='home' to='/home'>HOME</Link>
-                <h1 className='lets_go'>¡Let's go!</h1>
-                <form className='form' onSubmit={(e) => handleSubmit(e)}>
+            <div className={styles.create_container}>
+                <Link className={styles.button_home} to='/home'>Home</Link>
+                <h1 className={styles.lets_go}>¡Let's go!</h1>
+                <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
                     <div>
-                        <input className='input'
+                        <input className={styles.input}
                             placeholder='Videogame Name'
                             type='text'
                             value={input.name}
@@ -118,11 +114,11 @@ export default function VideogameCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.name && (
-                            <p className='error'>{errors.name}</p>
+                            <p className={styles.error}>{errors.name}</p>
                         )}
                     </div>
                     <div>
-                        <input className='input'
+                        <input className={styles.input}
                             placeholder='Image'
                             type='img'
                             value={input.image}
@@ -132,7 +128,7 @@ export default function VideogameCreate() {
                         />
                     </div>
                     <div>
-                        <input className='input'
+                        <input className={styles.input}
                             placeholder='Description'
                             type='text'
                             value={input.description}
@@ -140,19 +136,19 @@ export default function VideogameCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                         {errors.description && (
-                            <p className='error'>{errors.description}</p>
+                            <p className={styles.error}>{errors.description}</p>
                         )}
                     </div>
-                    <div className='released_container'>
-                        <label className='released'> Released </label>
-                        <input className='released_input'
+                    <div className={styles.released_container}>
+                        <label className={styles.released}> Released </label>
+                        <input className={styles.released_input}
                             type='date'
                             value={input.released}
                             name='released'
                             onChange={(e) => handleChange(e)}
                         />
-                        <label className='rating'>Rating </label>
-                        <input className='rating_input'
+                        <label className={styles.rating}>Rating </label>
+                        <input className={styles.rating_input}
                             placeholder='0 to 5'
                             type='number'
                             value={input.rating}
@@ -162,36 +158,36 @@ export default function VideogameCreate() {
                             onChange={(e) => handleChange(e)}
                         />
                     </div>
-                    <div className='genres_container'>
-                        <label className='genres'>Genres </label>
-                        <select className='genres_input' onChange={(e) => handleSelectGenre(e)}>
+                    <div className={styles.genres_container}>
+                        <label className={styles.genres}>Genres </label>
+                        <select className={styles.genres_input} onChange={(e) => handleSelectGenre(e)}>
                             {genre.map(g => (
                                 <option key={g.name} value={g.name}>{g.name}</option>
                             ))}
                         </select>
                     </div>
-                    <div className='platforms_container'>
-                        <label className='platforms'>Platforms </label>
-                        <select className='platforms_input' onChange={(e) => handleSelectPlatform(e)}>
+                    <div className={styles.platforms_container}>
+                        <label className={styles.platforms}>Platforms </label>
+                        <select className={styles.platforms_input} onChange={(e) => handleSelectPlatform(e)}>
                             {platform.map(p => (
                                 <option key={p.name} value={p.name}>{p.name}</option>
                             ))}
                         </select>
                     </div>
                     <div>
-                        <button className='create' type='submit'>CREATE</button>
+                        <button className={styles.create} type='submit'>Create</button>
                     </div>
                 </form>
                 {input.genres.map(g =>
-                    <div className='x_genre_container'>
-                        <label className='x_genre'>{g}</label>
-                        <button className='x_genre_buttom' onClick={() => handleDeleteGenre(g)}>X</button>
+                    <div className={styles.x_genre_container}>
+                        <label className={styles.x_genre}>{g}</label>
+                        <button className={styles.x_genre_buttom} onClick={() => handleDeleteGenre(g)}>X</button>
                     </div>
                 )}
                 {input.platforms.map(p =>
-                    <div className='x_platform_container'>
-                        <label className='x_platform'>{p}</label>
-                        <button className='x_platform_buttom' onClick={() => handleDeletePlatform(p)}>X</button>
+                    <div className={styles.x_platform_container}>
+                        <label className={styles.x_platform}>{p}</label>
+                        <button className={styles.x_platform_buttom} onClick={() => handleDeletePlatform(p)}>X</button>
                     </div>
                 )}
             </div>
