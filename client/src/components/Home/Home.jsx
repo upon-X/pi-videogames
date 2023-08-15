@@ -7,7 +7,8 @@ import Card from '../Card/Card';
 import Paginado from '../Paginado';
 import Navbar from '../NavBar/NavBar';
 import Loader from '../Loader';
-import './home.css'
+import Sponsors from '../Sponsors/Sponsors'
+import styles from './home.module.css'
 
 export default function Home() {
     const dispatch = useDispatch() // Conectamos el dispatch de Redux
@@ -70,9 +71,11 @@ export default function Home() {
         setOrder(e.target.value);
     }
     return (
-        <div>
-            <div className="create_container"></div>
-            <Link className='button_create_videogame' to='/videogame'>Crear Videogame</Link>
+        <div className={styles.home}>
+            <div className={styles.button_container}>
+                <Link className={styles.button_about} to='/about'>About</Link>
+                <Link className={styles.button_create_videogame} to='/videogame'>Create Videogame</Link>
+            </div>
 
             <div>
                 <Navbar
@@ -83,7 +86,13 @@ export default function Home() {
                     handleFilterPlatforms={handleFilterPlatforms}
                 />
             </div>
-            <ul className='card_grid'>
+            <div className={styles.pagination}>
+                <Paginado
+                    videogamesPerPage={videogamesPerPage}
+                    allVideogames={allVideogames.length}
+                    paginado={paginado} />
+            </div>
+            <ul className={styles.card_grid}>
                 {currentVideogames?.map((g) => {
                     return (
                         <Card
@@ -97,11 +106,14 @@ export default function Home() {
                     );
                 })}
             </ul>
-            <div className='pagination'>
+            <div className={styles.pagination}>
                 <Paginado
                     videogamesPerPage={videogamesPerPage}
                     allVideogames={allVideogames.length}
                     paginado={paginado} />
+            </div>
+            <div className={styles.sponsors}>
+                <Sponsors />
             </div>
             <div>
                 <Link to='/'>landing</Link>

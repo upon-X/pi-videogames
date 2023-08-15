@@ -1,0 +1,32 @@
+.search_container {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.search {
+    width: 30rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: 2px solid transparent;
+    outline: none;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.search:hover {
+    border: 2px solid var(--colorGolden);
+
+}
+
+.button_search {
+    margin-left: 10px;
+    position: absolute;
+    cursor: pointer;
+    border: 2px solid transparent;
+    color: white;
+    border-radius: 150px;
+}
+
+.button_search:hover {
+    border: 2px solid var(--colorGolden);
+}

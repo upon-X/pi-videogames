@@ -26,11 +26,6 @@ const getPlatforms = async (req, res) => {
     }
 };
 
-
 router.get('/', getPlatforms);
-  
-  
-  
-
 
 module.exports = router;

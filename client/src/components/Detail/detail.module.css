@@ -1,0 +1,85 @@
+:root {
+    --colorGolden: goldenrod;
+    --color1: #780096;
+    --color2: #9100b6;
+    --color3: #450057;
+    --colorblacklight: rgb(32, 32, 32);
+    --FFCaveat: 'Caveat', cursive;
+    --FFComfortaa: 'Comfortaa', cursive;
+    --FFChakra: 'Chakra Petch', sans-serif;
+    --bgradient: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(52, 7, 66, 1) 100%);
+}
+
+.details {
+    background: var(--bgradient);
+    height: 100vh;
+    font-family: var(--FFChakra);
+}
+
+.container_detail {
+    margin-left: -1rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.button_home {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-top: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.877);
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: var(--FFChakra);
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: black;
+}
+
+.button_home:hover {
+    color: var(--colorGolden);
+    background-color: var(--colorblacklight);
+}
+
+.title_container_detail {
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.title_detail {
+    color: white;
+    justify-content: center;
+    text-align: center;
+    font-size: 25px;
+    text-shadow: none;
+    margin-left: 1rem;
+    text-decoration: underline var(--colorGolden);
+}
+
+.image_detail {
+    justify-content: center;
+    margin-left: 2rem;
+    width: 400px;
+    height: 300px;
+}
+
+.description_detail,
+.rating_detail,
+.genres_detail,
+.released_detail,
+.platforms_detail {
+    justify-content: center;
+    text-align: center;
+    margin-left: 2rem;
+    color: whitesmoke;
+}
+
+.description_detail {
+    padding: 0 20%;
+    text-align: justify;
+}

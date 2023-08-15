@@ -1,4 +1,4 @@
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 
 module.exports = (sequelize) => {
@@ -9,11 +9,9 @@ module.exports = (sequelize) => {
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4,
         },
-
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-
         },
     });
 };

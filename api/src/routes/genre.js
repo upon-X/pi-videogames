@@ -1,18 +1,14 @@
-const  axios = require('axios');
+const axios = require('axios');
 const { Router } = require('express');
 const { Genre } = require('../db');
 const { YOUR_API_KEY } = process.env;
 
-
-
 const router = Router();
-
-
 
 const getAllGenres = async (req, res) => {
     const genresApi = await axios.get(`https://api.rawg.io/api/genres?key=${YOUR_API_KEY}`);
     const nameGenres = genresApi.data.results;
-    
+
     nameGenres.forEach(async (g) => {
         await Genre.findOrCreate({
             where: {
@@ -24,9 +20,7 @@ const getAllGenres = async (req, res) => {
     res.status(200).json(allGenres)
 }
 
-
 router.get('/', getAllGenres);
-
 
 /*
 router.post('/', (req, res, next) => {
@@ -38,6 +32,5 @@ router.post('/', (req, res, next) => {
    .catch(error => next(error))
 })
 */
-
 
 module.exports = router;

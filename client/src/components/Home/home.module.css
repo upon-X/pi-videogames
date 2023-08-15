@@ -1,0 +1,60 @@
+:root {
+    --colorGolden: goldenrod;
+    --color1: #780096;
+    --color2: #9100b6;
+    --color3: #450057;
+    --colorblacklight: rgb(32, 32, 32);
+    --FFCaveat: 'Caveat', cursive;
+    --FFComfortaa: 'Comfortaa', cursive;
+    --FFChakra: 'Chakra Petch', sans-serif;
+}
+
+.home {
+    background-color: var(--color3);
+}
+
+.card_grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    padding: 40px;
+    justify-content: center;
+    transition: margin-left 0.3s 0.1s;
+}
+
+.button_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 3rem;
+}
+
+.button_create_videogame,
+.button_about {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-top: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.877);
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: var(--FFChakra);
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: black;
+}
+
+.button_about:hover,
+.button_create_videogame:hover {
+    color: var(--colorGolden);
+    background-color: var(--colorblacklight);
+}
+
+.pagination {
+    margin: 1rem;
+    cursor: pointer;
+}

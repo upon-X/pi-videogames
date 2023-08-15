@@ -1,5 +1,5 @@
 import React from 'react';
-import './paginado.css'
+import styles from './paginado.module.css'
 
 export default function Paginado({ videogamesPerPage, allVideogames, paginado }) {
     const pageNumbers = []
@@ -8,7 +8,7 @@ export default function Paginado({ videogamesPerPage, allVideogames, paginado })
         pageNumbers.push(i)
     }
     return (
-        <div className='pagination_container'>
+        <div className={styles.pagination_container}>
             {pageNumbers && pageNumbers.map(number => (
                 <a key={number} href onClick={() => paginado(number)}>{number}</a>
             ))}

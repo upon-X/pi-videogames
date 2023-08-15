@@ -5,7 +5,8 @@ import LandingPage from './components/Landing/Landing';
 import Home from './components/Home/Home';
 import VideogameCreate from './components/VideogameCreate/VideogameCreate';
 import Detail from "./components/Detail/Detail";
-// import NavBar from "./components/NavBar/NavBar";
+import About from "./components/About/About";
+// import NavBar from "./components/NavBar/NavBar"; 
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/videogame' element={<VideogameCreate />} />
         <Route path='/videogame/:id' element={<Detail />} />
+        <Route path='/about' element={<About />} />
       </Routes>
     </div>
   );

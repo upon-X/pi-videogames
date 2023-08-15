@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
-import './navbar.css'
+import styles from './navbar.module.css'
 
 export default function Navbar({ handleFilterGenre, handleFilterCreated, handleRating, handleSort, handleFilterPlatforms }) {
     const allGenre = useSelector(state => state.genres);
@@ -9,27 +9,27 @@ export default function Navbar({ handleFilterGenre, handleFilterCreated, handleR
 
     return (
         <div>
-            <div className="navbar_container">
+            <div className={styles.navbar_searchbar}>
                 <SearchBar />
             </div>
-            <div>
-                <select className="select" onChange={(e) => handleSort(e)}>
+            <div className={styles.navbar_container}>
+                <select className={styles.select} onChange={(e) => handleSort(e)}>
                     <option hidden value=''>Sort</option>
                     <option value='Asc'>A-Z</option>
                     <option value='Desc'>Z-A</option>
                 </select>
-                <select className="select" onChange={(e) => handleRating(e)}>
+                <select className={styles.select} onChange={(e) => handleRating(e)}>
                     <option hidden value=''>Rating</option>
                     <option value="Top">Rating ⭸</option>
                     <option value="Low">Rating ⭷</option>
                 </select>
-                <select className="select" onChange={(e) => handleFilterCreated(e)}>
+                <select className={styles.select} onChange={(e) => handleFilterCreated(e)}>
                     <option hidden value=''>Filter by</option>
                     <option value='All'>All</option>
                     <option value='Created'>Created</option>
                     <option value='Api'>Existent</option>
                 </select>
-                <select className="select" onChange={(e) => handleFilterGenre(e)}>
+                <select className={styles.select} onChange={(e) => handleFilterGenre(e)}>
                     <option hidden value=''>Genres</option>
                     <option value='All'>All</option>
                     {allGenre.map((genre) => (
@@ -38,7 +38,7 @@ export default function Navbar({ handleFilterGenre, handleFilterCreated, handleR
                         </option>
                     ))}
                 </select>
-                <select className="select" onChange={(e) => handleFilterPlatforms(e)}>
+                <select className={styles.select} onChange={(e) => handleFilterPlatforms(e)}>
                     <option hidden value=''>Platforms</option>
                     <option value='All'>All</option>
                     {allPlatforms.map((platform) => (

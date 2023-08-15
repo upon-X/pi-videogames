@@ -1,7 +1,10 @@
 :root {
     --bgLandingCol2: #780096;
     --bgLandingCol1: #9100b6;
+    --colorblacklight: rgb(32, 32, 32);
     --FFCaveat: 'Caveat', cursive;
+    --FFComfortaa: 'Comfortaa', cursive;
+    --colorGolden: goldenrod;
 }
 
 .landing_page {
@@ -17,6 +20,33 @@
     grid-column: 2;
     background-color: var(--bgLandingCol2);
     height: 100vh;
+    text-align: center;
 }
 
-.title {}
+.title {
+    font-family: var(--FFCaveat);
+    font-size: 3rem;
+    margin-top: 15rem;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    font-family: var(--FFComfortaa);
+}
+
+.btn {
+    font-family: var(--FFComfortaa);
+    padding: 1rem;
+    background-color: black;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--bgLandingCol2);
+    transition: ease-in-out 0.1s;
+}
+
+.btn:hover {
+    border-radius: 10px;
+    background-color: var(--colorblacklight);
+    color: var(--colorGolden);
+}

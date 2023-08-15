@@ -1,0 +1,18 @@
+.slider {
+    background-color: black;
+    aspect-ratio: 16/9;
+    width: 62vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.slider img {
+    transition: 0.5s ease-in-out;
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    scroll-snap-align: center;
+}
