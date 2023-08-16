@@ -29,7 +29,7 @@ function rootReducer(state = initialState, action) { // en esta accion mando tod
                 ...state,
             }
         case 'FILTER_BY_GENRE':
-            const allGames = state.videogames; //aca tb para el filtro desde todos
+            const allGames = state.videogames;
             const genresFiltered = action.payload === 'All' ?
                 state.allVideogames
                 : allGames.filter(el => {

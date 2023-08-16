@@ -131,9 +131,9 @@
 
 .redes {
     margin: 1rem 20%;
-    padding-bottom: 1rem;
     display: flex;
     justify-content: space-evenly;
+    padding-bottom: 1.5rem;
 }
 
 .redes a {

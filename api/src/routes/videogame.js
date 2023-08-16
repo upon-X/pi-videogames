@@ -1,21 +1,16 @@
 const { Router } = require('express');
 const axios = require('axios');
 const { Videogame, Genre, Platform } = require('../db');
-const { YOUR_API_KEY } = process.env;
-
-
+const { API_KEY } = process.env;
 const router = Router();
-
 
 const getGames = async () => {
     let apiGames = [];
-
-    const url1 = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=1`)
-    const url2 = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=2`)
-    const url3 = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=3`)
-    const url4 = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=4`)
-    const url5 = await axios.get(`https://api.rawg.io/api/games?key=${YOUR_API_KEY}&page=5`)
-
+    const url1 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=1`)
+    const url2 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=2`)
+    const url3 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=3`)
+    const url4 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=4`)
+    const url5 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=5`)
     apiGames = url1.data.results.concat(
         url2.data.results,
         url3.data.results,
@@ -41,11 +36,10 @@ const getGames = async () => {
 const dataBase = async () => {
     return await Videogame.findAll({
         include: [Genre, Platform],
-        // traigo el nombre del genero
     });
 };
 const getAllGames = async () => {
-    const apiData = await getGames(); // devuelvo todo la pi
+    const apiData = await getGames();
     const dbInfo = await dataBase();
     const total = apiData.concat(dbInfo);
     return total;
@@ -63,23 +57,21 @@ router.get("/", async (req, res) => {
             res.status(404).json({ msg: 'Game not Found 😕' });
     } else {
         res.status(200).json(totalGames);
-
     }
 });
 
 router.get('/:id', async (req, res) => {
-    const { id } = req.params // const id = req.params.id   es lo mismo
+    const { id } = req.params
     try {
-        if (id.includes('-')) {//detectar UUID en BD
+        if (id.includes('-')) {
             const gameDb = await Videogame.findOne({
                 where: { id },
                 include: [Genre, Platform],
             });
             return res.json(gameDb);
         }
-        const gameApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=${YOUR_API_KEY}`);
+        const gameApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
         res.json(gameApi.data);
-
     } catch (error) {
         res.status(404).json({ error: 'Id not found 😕' });
     }
@@ -87,7 +79,6 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     let { name, image, description, released, rating, genres, platforms, createdInDb } = req.body
-
     let newGame = await Videogame.create({
         name,
         image,
@@ -104,26 +95,10 @@ router.post('/', async (req, res) => {
     let platformDb = await Platform.findAll({
         where: { name: platforms }
     });
-
     newGame.addGenres(genreDb);
     newGame.addPlatforms(platformDb);
-
     res.status(200).send('Video juego creado con exito 👌');
 });
-
-/*
-para vincular un videojuego con un genero
-router.post('/:videogameId/gender/:genderId', async (req, res, next) => {
-    try{
-        const {videogameId, genderId} = req.params;
-        const videogame = await Videogame.findByPk(videogameId) // busco al videojuego por su primary key
-        await videogame.addGender(genderId)                     //ligar los videojuegos con su genero en particular
-        res.status(200)   //200 es OK
-    } catch(error) {
-        next(error)
-    }    
-})    
-*/
 
 router.put('/', (req, res, next) => {
     res.send('soy put/videogame')
@@ -132,11 +107,5 @@ router.put('/', (req, res, next) => {
 router.delete('/', (req, res, next) => {
     res.send('soy delete/videogame')
 });
-
-/*
-router.get('*', (req, res) => {
-    res.status(404).json('No existe ninguna ruta con dicha url');
-});
-*/
 
 module.exports = router;
