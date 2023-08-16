@@ -1,6 +1,7 @@
 :root {
     --colorGolden: goldenrod;
     --FFComfortaa: 'Comfortaa', cursive;
+    --FFChakra: 'Chakra Petch', sans-serif;
     --bgradient: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(52, 7, 66, 1) 100%);
 }
 
@@ -59,4 +60,27 @@
 .card_game:hover .title_genre,
 .card_game:hover .title_rating {
     color: var(--colorGolden);
+}
+
+.card_game:hover .detail_button_container {
+    opacity: 1;
+}
+
+.detail_button_container {
+    transition: ease-in-out 0.19s;
+    opacity: 0;
+    position: relative;
+}
+
+.detail_button {
+    background-color: var(--color4);
+    font-family: var(--FFChakra);
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.detail_button:hover {
+    background-color: var(--colorGolden);
 }

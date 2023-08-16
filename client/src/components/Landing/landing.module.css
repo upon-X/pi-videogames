@@ -24,8 +24,8 @@
 
 .title {
     font-family: var(--FFCaveat);
-    font-size: 3rem;
-    margin-top: 15rem;
+    font-size: 4rem;
+    margin-top: 14rem;
 }
 
 .subtitle {
@@ -50,7 +50,7 @@
     color: var(--colorGolden);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 719px) {
     .landing_page {
         grid-template-rows: 2;
         grid-template-columns: 1fr;

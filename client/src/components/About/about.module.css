@@ -1,18 +1,35 @@
 :root {
     --FFChakra: 'Chakra Petch', sans-serif;
+    --colorGolden: goldenrod;
+    --color3: #450057;
+    --color4: #f0f8ff;
+    --colorblacklight: rgb(32, 32, 32);
+}
+
+.text,
+.title {
+    color: var(--color4);
+    text-align: justify;
+    margin: 0 20%;
+    padding: 1rem;
 }
 
 .about {
     font-family: var(--FFChakra);
+    background-color: var(--color3);
+    height: 100vh;
+}
+
+.link_btn_home {
+    display: grid;
+    text-decoration: none;
+    margin-bottom: 3rem;
 }
 
 .btn_home {
-    display: inline-block;
-    text-align: center;
-    padding: 5px 10px;
-    text-decoration: none;
     margin-top: 2rem;
-    text-decoration: none;
+    place-self: center;
+    padding: 5px 10px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.877);
     cursor: pointer;
@@ -25,6 +42,11 @@
     background-color: black;
 }
 
+.btn_home:hover {
+    color: var(--colorGolden);
+    background-color: var(--colorblacklight);
+}
+
 .name {
     display: flex;
     justify-content: center;
@@ -32,8 +54,94 @@
     flex-direction: column;
     font-weight: light;
     font-size: 2rem;
+    color: var(--color4);
 }
 
 .role {
     font-weight: bold;
+    color: var(--colorGolden);
+}
+
+.contact,
+.presentation {
+    margin: 1rem 0;
+    background-color: var(--colorblacklight);
+}
+
+.title {
+    text-align: center;
+}
+
+.technologies {
+    margin: 2rem 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    user-select: none;
+    gap: 1rem;
+}
+
+.html,
+.css,
+.js,
+.react,
+.express,
+.sequelize {
+    text-align: center;
+    font-weight: bold;
+    width: 7rem;
+    border-radius: 200px;
+    padding: 0.7rem 0;
+    color: black;
+    transition: ease-in-out 0.2s;
+}
+
+.html:hover,
+.css:hover,
+.js:hover,
+.react:hover,
+.express:hover,
+.sequelize:hover {
+    scale: 1.09;
+}
+
+.html {
+    background-color: #ff8717;
+}
+
+.css {
+    background-color: #0084ff;
+}
+
+.js {
+    background-color: yellow;
+}
+
+.react {
+    background-color: #27ccfa;
+}
+
+.express {
+    background-color: green;
+}
+
+.sequelize {
+    background-color: #ff6e6e;
+}
+
+.redes {
+    margin: 1rem 20%;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.redes a {
+    color: var(--color4);
+    text-decoration: none;
+    transition: ease-in-out 0.15s;
+}
+
+.redes a:hover {
+    color: var(--colorGolden);
 }

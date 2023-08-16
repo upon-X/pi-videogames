@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './landing.module.css';
-import Slider from '../Slider/Slider';
+import Swiper from '../Slider/Slider';
 
 export default function LandingPage() {
   return (
     <div className={styles.landing_page}>
       <div className={styles.col1}>
-        <Slider className={styles.slider_hover} />
+        <Swiper className={styles.slider_hover} />
       </div>
       <div className={styles.col2}>
         <h4 className={styles.title}>Desk Games</h4>
