@@ -6,6 +6,10 @@
     --colorblacklight: rgb(32, 32, 32);
 }
 
+.colorGolden {
+    color: var(--colorGolden);
+}
+
 .text,
 .title {
     color: var(--color4);
@@ -65,7 +69,7 @@
 .contact,
 .presentation {
     margin: 1rem 0;
-    background-color: var(--colorblacklight);
+    background-color: black;
 }
 
 .title {
@@ -109,24 +113,48 @@
     background-color: #ff8717;
 }
 
+.html:hover {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #ff8717, 0 0 70px #ff8717, 0 0 80px #ff8717, 0 0 100px #ff8717;
+}
+
 .css {
     background-color: #0084ff;
 }
 
+.css:hover {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #0084ff, 0 0 70px #0084ff, 0 0 80px #0084ff, 0 0 100px #0084ff;
+}
+
 .js {
-    background-color: yellow;
+    background-color: #ffe600;
+}
+
+.js:hover {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #ffe600, 0 0 70px #ffe600, 0 0 80px #ffe600, 0 0 100px #ffe600;
 }
 
 .react {
     background-color: #27ccfa;
 }
 
+.react:hover {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #27ccfa, 0 0 70px #27ccfa, 0 0 80px #27ccfa, 0 0 100px #27ccfa;
+}
+
 .express {
-    background-color: green;
+    background-color: #008000;
+}
+
+.express:hover {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #008000, 0 0 70px #008000, 0 0 80px #008000, 0 0 100px #008000;
 }
 
 .sequelize {
     background-color: #ff6e6e;
+}
+
+.sequelize:hover {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #ff6e6e, 0 0 70px #ff6e6e, 0 0 80px #ff6e6e, 0 0 100px #ff6e6e;
 }
 
 .redes {
@@ -139,9 +167,12 @@
 .redes a {
     color: var(--color4);
     text-decoration: none;
-    transition: ease-in-out 0.15s;
+    transition: ease-in-out 0.1s;
+    padding: 0.5rem;
+    border: 1px solid transparent;
 }
 
 .redes a:hover {
     color: var(--colorGolden);
+    border-color: var(--colorGolden);
 }

@@ -19,12 +19,14 @@ export default function About() {
                 </h3>
                 <p className={styles.text}>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Sint ex laboriosam quae. Omnis ad doloribus ex asperiores
+                    Sint ex laboriosam quae. <span className={styles.colorGolden}>Omnis ad doloribus</span> ex asperiores
                     nesciunt reiciendis, provident dignissimos placeat amet
                     animi! Exercitationem porro magnam itaque distinctio dicta.
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Recusandae unde quas necessitatibus porro distinctio omnis,
-                    placeat tempore expedita, rerum impedit aspernatur delectus
+                    Recusandae unde quas necessitatibus porro distinctio omnis, Lorem ipsum dolor sit amet consectetur,
+                    adipisicing elit. Inventore hic est sint mollitia sed. Delectus quis aut eveniet eligendi corporis
+                    et eos minus sit cupiditate nostrum id, quisquam, atque saepe.
+                    placeat tempore expedita, <span className={styles.colorGolden}>rerum impedit aspernatur delectus</span>
                     facilis accusamus veniam libero asperiores aut id voluptate.
                 </p>
             </div>
@@ -78,6 +80,6 @@ export default function About() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

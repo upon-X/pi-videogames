@@ -16,8 +16,8 @@ export default function Details() {
     }
 
     {/* Con esto saco los <p> </p> <br /> que trae la descripcion*/ }
-    // const description = detail.description || detail.description_raw;
-    // const textWithoutTags = description.replace(/<\/?p>|<br\s?\/?>/g, '');
+    const description = detail.description || detail.description_raw;
+    const textWithoutTags = description.replace(/<\/?p>|<br\s?\/?>/g, '');
 
     return (
         <div className={styles.details}>
@@ -36,9 +36,9 @@ export default function Details() {
                     </p>
                     <p className={styles.genres_detail}>Genres: {detail.genres?.map(g => g.name).join(' - ')}</p>
                     <p className={styles.rating_detail}>Rating: {detail.rating}</p>
-                    <p className={styles.description_detail}>Description:
-                        {detail.description || detail.description_raw}
-                        {/* {textWithoutTags} */}
+                    <p className={styles.description_detail}>
+                        {/* {detail.description || detail.description_raw} */}
+                        {textWithoutTags}
                     </p>
                 </div>
             </div>
