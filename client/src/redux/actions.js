@@ -77,17 +77,16 @@ export function filterVideogamesByGenre(payload) { //el payload es el value del 
         payload
     }
 }
-export function filterVideogamesByPlatforms(payload) { //el payload es el value del input
+export function filterVideogamesByPlatforms(payload) {
     return {
         type: 'FILTER_BY_PLATFORMS',
         payload
     }
 }
 
-
 export function filterCreated(payload) { //db
     return {
-        type: 'FILTER_CREATED',
+        type: 'FILTER_BY_CREATED',
         payload
     }
 }

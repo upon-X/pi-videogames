@@ -2,26 +2,24 @@ import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import styles from './navbar.module.css'
 import { Link } from 'react-router-dom'
-import { /*useDispatch,*/ useSelector } from 'react-redux';
-// import { getVideogames } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { getVideogames } from '../../redux/actions';
 
 export default function Navbar({ handleFilterGenre, handleFilterCreated, handleRating, handleSort, handleFilterPlatforms }) {
     const allGenre = useSelector(state => state.genres);
     const allPlatforms = useSelector(state => state.platforms);
-
-    // const dispatch = useDispatch()
-    // function handleClick(e) {
-    //     e.preventDefault();
-    //     dispatch(getVideogames());
-    // };
-
+    const dispatch = useDispatch()
+    function handleClick(e) {
+        e.preventDefault();
+        dispatch(getVideogames());
+    };
     return (
         <div>
             <div className={styles.buttons}>
                 <div className={styles.button_container}>
                     <Link className={styles.button_about} to='/about'>About 💼</Link>
                     <Link className={styles.button_create_videogame} to='/videogame'>Create Videogame 🎮</Link>
-                    {/* <button className={styles.button_reload} onClick={(e) => { handleClick(e) }}>Reload🔄</button> */}
+                    <button className={styles.button_reload} onClick={(e) => { handleClick(e) }}>Reload Filters🔄</button>
                 </div>
                 <div>
                     <SearchBar />
@@ -42,7 +40,7 @@ export default function Navbar({ handleFilterGenre, handleFilterCreated, handleR
                     <option hidden value=''>Filter by</option>
                     <option value='All'>All</option>
                     <option value='Created'>Created</option>
-                    <option value='Api'>Existent</option>
+                    <option value='Api'>Api</option>
                 </select>
                 <select className={styles.select} onChange={(e) => handleFilterGenre(e)}>
                     <option hidden value=''>Genres</option>

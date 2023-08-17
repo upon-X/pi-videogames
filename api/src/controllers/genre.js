@@ -11,8 +11,8 @@ const getAllGenres = async (req, res) => {
         const nameGenres = genresApi.data.results;
         for (const g of nameGenres) {
             await Genre.findOrCreate({
-            where: {
-                name: g.name,
+                where: {
+                    name: g.name,
                 }
             })
         };

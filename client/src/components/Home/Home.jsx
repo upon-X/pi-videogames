@@ -60,7 +60,6 @@ export default function Home() {
         dispatch(filterCreated(e.target.value));//el payload
         setCurrentPage(1);
         setOrder(e.target.value);
-        if (!e.target.value) alert('No existen videojuegos creados')
     };
     // Handle para filtrar por los ratings
     function handleRating(e) {

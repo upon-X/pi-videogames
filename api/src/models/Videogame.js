@@ -27,6 +27,11 @@ module.exports = (sequelize) => {
     },
     rating: {
       type: DataTypes.STRING,
-    }
+    },
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    },
   });
 };

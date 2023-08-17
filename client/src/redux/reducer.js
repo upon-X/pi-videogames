@@ -54,15 +54,25 @@ function rootReducer(state = initialState, action) { // en esta accion mando tod
                 ...state,
                 videogames: platformsFiltered
             };
-        case 'FILTER_CREATED':
-            const filterCreated = action.payload === 'Created' ?
-                state.allVideogames.filter(el => el.createdInDb)
-                : alert('No hay juegos en la base de datos')
-            return {
-                ...state, //me devuelve el estado anterior
-                videogames: action.payload === 'All' ? state.allVideogames
-                    : filterCreated
-            };
+        case 'FILTER_BY_CREATED':
+            const filterType = action.payload;
+            if (filterType === 'Created' || filterType === 'Api') {
+                const filteredGames = state.allVideogames.filter(game => {
+                    const isCreatedInDb = game.createdInDb;
+                    return (filterType === 'Created' && isCreatedInDb) ||
+                        (filterType === 'Api' && !isCreatedInDb);
+                });
+
+                return {
+                    ...state,
+                    videogames: filteredGames
+                };
+            } else {
+                return {
+                    ...state,
+                    videogames: state.allVideogames
+                };
+            }
         case 'ORDER_BY_NAME': //orden asc y desc
             let sortName = action.payload === 'Asc' ?
                 state.videogames.sort(function (a, b) {
