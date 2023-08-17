@@ -6,17 +6,23 @@ const { API_KEY } = process.env;
 const router = Router();
 
 const getAllGenres = async (req, res) => {
-    const genresApi = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`);
-    const nameGenres = genresApi.data.results;
-    nameGenres.forEach(async (g) => {
-        await Genre.findOrCreate({
+    try {
+        const genresApi = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`);
+        const nameGenres = genresApi.data.results;
+        for (const g of nameGenres) {
+            await Genre.findOrCreate({
             where: {
                 name: g.name,
-            }
+                }
+            })
+        };
+        const allGenres = await Genre.findAll();
+        res.status(200).json(allGenres)
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
         })
-    });
-    const allGenres = await Genre.findAll();
-    res.status(200).json(allGenres)
+    }
 }
 
 router.get('/', getAllGenres);
