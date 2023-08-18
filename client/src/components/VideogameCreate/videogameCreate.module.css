@@ -3,6 +3,7 @@
     --color1: #780096;
     --color2: #9100b6;
     --color3: #450057;
+    --color6: #8d2222;
     --colorblacklight: rgb(32, 32, 32);
     --FFCaveat: 'Caveat', cursive;
     --FFComfortaa: 'Comfortaa', cursive;
@@ -20,7 +21,12 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: -10rem;
+}
+
+.form {
+    padding: 2rem;
+    background-color: var(--color5);
+    border-radius: 10px;
 }
 
 .create_container {
@@ -37,7 +43,7 @@
     font-size: 4rem;
 }
 
-.button_home {
+.btn_home {
     padding: 5px 10px;
     text-decoration: none;
     text-transform: uppercase;
@@ -48,12 +54,12 @@
     font-size: 15px;
     font-family: var(--FFChakra);
     outline: none;
-    border: none;
+    border: 1px solid black;
     border-radius: 6px;
     background-color: black;
 }
 
-.button_home:hover {
+.btn_home:hover {
     color: var(--colorGolden);
     background-color: var(--colorblacklight);
 }
@@ -70,6 +76,16 @@
     outline: none;
     border: none;
     margin-bottom: 2rem;
+}
+
+.rating,
+.released {
+    color: var(--color4);
+}
+
+.released_container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .released_input {
@@ -89,15 +105,19 @@
     color: black;
 }
 
+.btn_create {
+    display: flex;
+    justify-content: right;
+}
+
 .create {
-    justify-content: center;
     width: 7rem;
     height: 2.5rem;
     border-radius: 0.5rem;
     outline: none;
     border: none;
-    border-color: rgb(139, 60, 60);
-    background-color: rgb(139, 60, 60);
+    border-color: var(--color6);
+    background-color: var(--color6);
     color: var(--colorGolden);
     font-weight: bold;
     cursor: pointer;
@@ -105,7 +125,7 @@
 
 .create:hover {
     background-color: var(--colorGolden);
-    color: rgb(139, 60, 60);
+    color: var(--color6);
 }
 
 .x_container {

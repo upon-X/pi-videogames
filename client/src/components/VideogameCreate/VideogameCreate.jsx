@@ -42,6 +42,21 @@ export default function VideogameCreate() {
             platforms: [...input.platforms, e.target.value]
         })
     };
+
+    function handleDeletePlatform(e) {
+        setInput({
+            ...input,
+            platforms: input.platforms.filter(p => p !== e),
+        })
+    }
+
+    function handleDeleteGenre(e) {
+        setInput({
+            ...input, //me traigo el estado anterior
+            genres: input.genres.filter(g => g !== e), //filtrar por todo "g" que no sea "e"
+        })
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
         setErrors(
@@ -67,21 +82,6 @@ export default function VideogameCreate() {
             return;
         }
     }
-
-    function handleDeletePlatform(e) {
-        setInput({
-            ...input,
-            platforms: input.platforms.filter(p => p !== e),
-        })
-    }
-
-    function handleDeleteGenre(e) {
-        setInput({
-            ...input, //me traigo el estado anterior
-            genres: input.genres.filter(g => g !== e), //filtrar por todo "g" que no sea "e"
-        })
-    }
-
     useEffect(() => {
         dispatch(getGenres());
     }, [dispatch]);
@@ -93,7 +93,7 @@ export default function VideogameCreate() {
         <>
             <div className={styles.create_container}>
                 <div className={styles.form_creation}>
-                    <Link className={styles.button_home} to='/home'>Home</Link>
+                    <Link className={styles.btn_home} to='/home'>Home</Link>
                     <h1 className={styles.lets_go}>¡Let's go!</h1>
                     <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
                         <div>
@@ -165,7 +165,7 @@ export default function VideogameCreate() {
                                 ))}
                             </select>
                         </div>
-                        <div>
+                        <div className={styles.btn_create}>
                             <button className={styles.create} type='submit'>Create</button>
                         </div>
                     </form>

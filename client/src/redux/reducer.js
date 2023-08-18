@@ -62,7 +62,6 @@ function rootReducer(state = initialState, action) { // en esta accion mando tod
                     return (filterType === 'Created' && isCreatedInDb) ||
                         (filterType === 'Api' && !isCreatedInDb);
                 });
-
                 return {
                     ...state,
                     videogames: filteredGames

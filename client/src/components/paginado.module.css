@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-.pagination_container a {
+.pagination_number {
     font-family: var(--FFChakra);
     font-weight: bold;
     font-size: 1.4rem;
@@ -22,6 +22,6 @@
     text-decoration: none;
 }
 
-.pagination_container a:hover {
-    color: goldenrod;
+.pagination_number:hover {
+    color: var(--colorGolden);
 }

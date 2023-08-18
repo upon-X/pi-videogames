@@ -1,7 +1,6 @@
 import styles from './about.module.css'
 import { Link } from 'react-router-dom';
 
-
 export default function About() {
     return (
         <div className={styles.about}>
@@ -9,29 +8,23 @@ export default function About() {
                 <button className={styles.btn_home}>Home</button>
             </Link>
             <div className={styles.name}>
-                Developed by
+                <span className={styles.developedby}>Desarrollado por</span>
                 Valentino Micheloni
                 <span className={styles.role}>Full Stack Web Developer</span>
+                <span className={styles.textnotyet}>(not yet)</span>
             </div>
             <div className={styles.presentation}>
                 <h3 className={styles.title}>
-                    Presentation
+                    Presentación
                 </h3>
                 <p className={styles.text}>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Sint ex laboriosam quae. <span className={styles.colorGolden}>Omnis ad doloribus</span> ex asperiores
-                    nesciunt reiciendis, provident dignissimos placeat amet
-                    animi! Exercitationem porro magnam itaque distinctio dicta.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Recusandae unde quas necessitatibus porro distinctio omnis, Lorem ipsum dolor sit amet consectetur,
-                    adipisicing elit. Inventore hic est sint mollitia sed. Delectus quis aut eveniet eligendi corporis
-                    et eos minus sit cupiditate nostrum id, quisquam, atque saepe.
-                    placeat tempore expedita, <span className={styles.colorGolden}>rerum impedit aspernatur delectus</span>
-                    facilis accusamus veniam libero asperiores aut id voluptate.
+                    He desarrollado esta aplicación web a pedido de <span className={styles.colorGolden}>Henry</span> para demostrar mis conocimientos y habilidades
+                    adquiridos en el bootcamp. La misma tiene funciones como filtrar por genero, plataforma y procedencia (api o database) de videojuegos,
+                    ordenarlos alfabeticamente, buscar por nombre y <span className={styles.colorGolden}>crear los tuyos</span>.
                 </p>
             </div>
             <h3 className={styles.title}>
-                I domain these technologies
+                Tecnologias usadas para el desarrollo
             </h3>
             <div className={styles.technologies}>
                 <div className={styles.html}>
@@ -55,7 +48,7 @@ export default function About() {
             </div>
             <div className={styles.contact}>
                 <h3 className={styles.title}>
-                    Contact
+                    Contacto
                 </h3>
                 <div className={styles.redes}>
                     <div>

@@ -7,10 +7,11 @@ export default function Paginado({ videogamesPerPage, allVideogames, paginado })
     for (let i = 1; i <= Math.ceil(allVideogames / videogamesPerPage); i++) { //todos los videojuegos dividido los videojuegos por pag que quiero
         pageNumbers.push(i)
     }
+    if (pageNumbers.length <= 1) { return '' }
     return (
         <div className={styles.pagination_container}>
             {pageNumbers && pageNumbers.map(number => (
-                <a key={number} href onClick={() => paginado(number)}>{number}</a>
+                <a className={styles.pagination_number} key={number} href onClick={() => paginado(number)}>{number}</a>
             ))}
         </div>
     )

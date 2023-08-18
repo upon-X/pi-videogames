@@ -14,11 +14,11 @@ export default function Navbar({ handleFilterGenre, handleFilterCreated, handleR
         dispatch(getVideogames());
     };
     return (
-        <div>
+        <div className={styles.navbar}>
             <div className={styles.buttons}>
                 <div className={styles.button_container}>
-                    <Link className={styles.button_about} to='/about'>About 💼</Link>
-                    <Link className={styles.button_create_videogame} to='/videogame'>Create Videogame 🎮</Link>
+                    <Link className={styles.button_about} to='/about'>About💼</Link>
+                    <Link className={styles.button_create_videogame} to='/videogame'>Create Videogame🎮</Link>
                     <button className={styles.button_reload} onClick={(e) => { handleClick(e) }}>Reload Filters🔄</button>
                 </div>
                 <div>

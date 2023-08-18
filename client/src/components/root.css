@@ -1,17 +1,19 @@
 :root {
-    --colorGolden: goldenrod;
     --color1: #780096;
     --color2: #9100b6;
     --color3: #450057;
-    --color4: aliceblue;
-    --colorblacklight: rgb(32, 32, 32);
+    --color4: #f0f8ff;
+    --color5: #270031;
+    --color6: #8d2222;
+    --colorGolden: #daa520;
+    --colorblacklight: #202020;
     --FFCaveat: 'Caveat', cursive;
     --FFComfortaa: 'Comfortaa', cursive;
     --FFChakra: 'Chakra Petch', sans-serif;
     --bgradient: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(52, 7, 66, 1) 100%);
 }
 
-.cambiar_class {
+.btn_predeterminated {
     padding: 5px 10px;
     text-decoration: none;
     margin-top: 2rem;
@@ -24,7 +26,7 @@
     font-size: 15px;
     font-family: var(--FFChakra);
     outline: none;
-    border: none;
+    border: 1px solid black;
     border-radius: 6px;
     background-color: black;
 }
