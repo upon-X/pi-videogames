@@ -16,6 +16,7 @@
 }
 
 .col2 {
+    color: var(--color4);
     grid-column: 2;
     background-color: var(--color1);
     height: 100vh;
