@@ -6,13 +6,13 @@ const initialState = {
     platforms: []
 }
 
-function rootReducer(state = initialState, action) { // en esta accion mando todos los videogames al arrglo vacio
+function rootReducer(state = initialState, action) {
     switch (action.type) {
         case 'GET_VIDEOGAMES':
             return {
                 ...state,
                 videogames: action.payload,
-                allVideogames: action.payload //esto es para q los filtros siempre empiecen sobre todos y no obre el filtro aplicado
+                allVideogames: action.payload
             }
         case 'GET_VIDEOGAME_NAME': //searchbar
             return {
@@ -48,8 +48,12 @@ function rootReducer(state = initialState, action) { // en esta accion mando tod
                 : allgames.filter(el => {
                     return el.platforms.find(el => {
                         return el.name === action.payload;
-                    })
+                    });
                 });
+            if (platformsFiltered.length === 0) {
+                alert("No hay juegos disponibles para esta plataforma.");
+                return state;
+            }
             return {
                 ...state,
                 videogames: platformsFiltered
@@ -62,6 +66,10 @@ function rootReducer(state = initialState, action) { // en esta accion mando tod
                     return (filterType === 'Created' && isCreatedInDb) ||
                         (filterType === 'Api' && !isCreatedInDb);
                 });
+                if (filteredGames.length === 0) {
+                    alert("No hay juegos creados en la base de datos.");
+                    return state;
+                }
                 return {
                     ...state,
                     videogames: filteredGames
@@ -72,7 +80,8 @@ function rootReducer(state = initialState, action) { // en esta accion mando tod
                     videogames: state.allVideogames
                 };
             }
-        case 'ORDER_BY_NAME': //orden asc y desc
+        case 'ORDER_BY_NAME':
+            //orden a/z z/a
             let sortName = action.payload === 'Asc' ?
                 state.videogames.sort(function (a, b) {
                     if (a.name > b.name) {
@@ -97,25 +106,10 @@ function rootReducer(state = initialState, action) { // en esta accion mando tod
                 videogames: sortName,
             };
         case 'ORDER_BY_RATING':
-            let sortRating = action.payload === 'Low' ?
-                state.videogames.sort(function (a, b) {
-                    if (a.rating > b.rating) {
-                        return 1;
-                    }
-                    if (b.rating > a.rating) {
-                        return -1;
-                    }
-                    return 0;
-                })
-                : state.videogames.sort(function (a, b) {
-                    if (a.rating > b.rating) {
-                        return -1;
-                    }
-                    if (b.rating > a.rating) {
-                        return 1;
-                    }
-                    return 0;
-                });
+            //Ordena de manera high/low low/high
+            const sortRating = action.payload === 'Low' ?
+                [...state.videogames].sort((a, b) => a.rating - b.rating)
+                : [...state.videogames].sort((a, b) => b.rating - a.rating);
             return {
                 ...state,
                 videogames: sortRating,
@@ -130,6 +124,13 @@ function rootReducer(state = initialState, action) { // en esta accion mando tod
                 ...state,
                 platforms: action.payload
             }
+        // case 'DELETE_GAME':
+        //     // Filtra los juegos en el state para eliminar el del ID dado
+        //     const updatedVideogames = state.videogames.filter(game => game.id !== action.payload);
+        //     return {
+        //         ...state,
+        //         videogames: updatedVideogames,
+        //     };
         default:
             return state;
     }

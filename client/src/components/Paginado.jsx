@@ -3,7 +3,6 @@ import styles from './paginado.module.css'
 
 export default function Paginado({ videogamesPerPage, allVideogames, paginado }) {
     const pageNumbers = []
-
     for (let i = 1; i <= Math.ceil(allVideogames / videogamesPerPage); i++) { //todos los videojuegos dividido los videojuegos por pag que quiero
         pageNumbers.push(i)
     }

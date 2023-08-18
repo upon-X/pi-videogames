@@ -32,21 +32,13 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Videogame, Genre, Platform } = sequelize.models;
 
 // Aca vendrian las relaciones
-Videogame.belongsToMany(Genre, {
-  through: "genre_videogame"
-})
+Videogame.belongsToMany(Genre, { through: "genre_videogame" })
 
-Genre.belongsToMany(Videogame, {
-  through: "genre_videogame"
-})
+Genre.belongsToMany(Videogame, { through: "genre_videogame" })
 
-Videogame.belongsToMany(Platform, {
-  through: "platform_videogame"
-})
+Videogame.belongsToMany(Platform, { through: "platform_videogame" })
 
-Platform.belongsToMany(Videogame, {
-  through: "platform_videogame"
-});
+Platform.belongsToMany(Videogame, { through: "platform_videogame" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

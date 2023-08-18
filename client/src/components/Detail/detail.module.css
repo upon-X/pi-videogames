@@ -1,5 +1,6 @@
 :root {
-    --colorGolden: goldenrod;
+    --colorGolden: #daa520;
+    --color4: #f0f8ff;
     --colorblacklight: rgb(32, 32, 32);
     --FFChakra: 'Chakra Petch', sans-serif;
     --bgradient: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(52, 7, 66, 1) 100%);
@@ -12,29 +13,28 @@
 }
 
 .container_detail {
-    margin-left: -1rem;
     justify-content: center;
     text-align: center;
 }
 
-.button_home {
+.btn_home {
+    margin-top: 2rem;
     padding: 5px 10px;
     text-decoration: none;
-    margin-top: 2rem;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.877);
+    color: var(--color4);
     justify-content: center;
     cursor: pointer;
     font-weight: bold;
     font-size: 15px;
     font-family: var(--FFChakra);
     outline: none;
-    border: none;
+    border: 1px solid black;
     border-radius: 6px;
     background-color: black;
 }
 
-.button_home:hover {
+.btn_home:hover {
     color: var(--colorGolden);
     background-color: var(--colorblacklight);
 }
@@ -43,24 +43,25 @@
     justify-content: center;
     text-align: center;
     margin-top: 2rem;
+    font-size: 1rem;
 }
 
 .title_detail {
-    color: white;
+    color: var(--color4);
     justify-content: center;
     text-align: center;
-    font-size: 25px;
+    font-size: 1.7rem;
     text-shadow: none;
-    margin-left: 1rem;
     text-decoration: underline var(--colorGolden);
 }
 
 .image_detail {
     justify-content: center;
-    margin-left: 2rem;
     aspect-ratio: 16/9;
-    width: 550px;
+    width: 560px;
     height: 300px;
+    border: 3px solid var(--colorGolden);
+    border-radius: 2px;
 }
 
 .description_detail,
@@ -70,11 +71,14 @@
 .platforms_detail {
     justify-content: center;
     text-align: center;
-    margin-left: 2rem;
-    color: whitesmoke;
+    color: var(--color4);
 }
 
 .description_detail {
     padding: 0 20%;
     text-align: justify;
+}
+
+.colorGolden {
+    color: var(--colorGolden);
 }

@@ -21,7 +21,6 @@ export default function Home() {
     const paginado = (pageNumber) => { //Funcion para cambiar de pagina
         setCurrentPage(pageNumber)
     }
-
     // Traigo genres y platforms cuando el componente se monta
     useEffect(() => {
         dispatch(getGenres());
@@ -31,7 +30,6 @@ export default function Home() {
     useEffect(() => {
         dispatch(getVideogames()); // Dispatch para obtener los VGs
     }, [dispatch]);
-
     if (!allVideogames.length) return <Loader />; // Renderiza el loader hasta que se habilite la data del VG
     // Handle para ordenar por nombres
     function handleSort(e) {
@@ -54,10 +52,10 @@ export default function Home() {
         setCurrentPage(1);
         setOrder(e.target.value);
     };
-    // Handle para filtrar por los viedeojuegos creados en la DB
+    // Handle para filtrar por los videojuegos creados en la DB
     function handleFilterCreated(e) {
         e.preventDefault();
-        dispatch(filterCreated(e.target.value));//el payload
+        dispatch(filterCreated(e.target.value));
         setCurrentPage(1);
         setOrder(e.target.value);
     };
@@ -68,7 +66,6 @@ export default function Home() {
         setCurrentPage(1);
         setOrder(e.target.value);
     }
-
     return (
         <div className={styles.home}>
             <div>

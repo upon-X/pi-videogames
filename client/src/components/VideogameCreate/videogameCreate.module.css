@@ -13,6 +13,21 @@
 
 .error {
     color: red;
+    margin-top: -1rem;
+}
+
+.error_rating{
+    display: flex;
+    margin-top: 3px;
+    justify-content: right;
+}
+
+.nozero{
+    color: transparent;
+}
+.character_count {
+    margin: -1rem 0 1rem 0;
+    color: var(--color4);
 }
 
 .form_creation {
@@ -80,7 +95,10 @@
 
 .rating,
 .released {
+    display: flex;
     color: var(--color4);
+    align-items: first center;
+    margin-top: -2rem;
 }
 
 .released_container {

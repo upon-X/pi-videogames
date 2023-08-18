@@ -7,8 +7,9 @@ import validate from './validate'
 
 export default function VideogameCreate() {
     const dispatch = useDispatch();
-    const genre = useSelector((state) => state.genres);
+    const genre = useSelector((state) => state.genres); //Usamos useSelector para sacar partes especificas del Redux store
     const platform = useSelector((state) => state.platforms)
+    const [descriptionCount, setDescriptionCount] = useState(0);
     const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         name: '',
@@ -19,7 +20,6 @@ export default function VideogameCreate() {
         genres: [],
         platforms: [],
     })
-
     function handleChange(e) {
         setInput({
             ...input,
@@ -31,32 +31,53 @@ export default function VideogameCreate() {
         }));
     }
     function handleSelectGenre(e) {
-        setInput({
-            ...input,
-            genres: [...input.genres, e.target.value],
-        })
+        const selectedGenres = e.target.value
+        if (!input.genres.includes(selectedGenres)) {
+            setInput({
+                ...input,
+                genres: [...input.genres, e.target.value],
+            })
+        } else {
+            window.alert('Ya esta agregado el genero')
+        }
     }
     function handleSelectPlatform(e) {
-        setInput({
-            ...input,
-            platforms: [...input.platforms, e.target.value]
-        })
+        const selectedPlatforms = e.target.value
+        if (!input.platforms.includes(selectedPlatforms)) {
+            setInput({
+                ...input,
+                platforms: [...input.platforms, selectedPlatforms]
+            })
+        } else {
+            window.alert('Ya esta agregado la plataforma')
+        }
     };
-
     function handleDeletePlatform(e) {
         setInput({
             ...input,
             platforms: input.platforms.filter(p => p !== e),
         })
     }
-
     function handleDeleteGenre(e) {
         setInput({
             ...input, //me traigo el estado anterior
             genres: input.genres.filter(g => g !== e), //filtrar por todo "g" que no sea "e"
         })
     }
-
+    function handleDescriptionChange(e) {
+        const descriptionValue = e.target.value;
+        if (descriptionValue.length <= 500) {
+            setInput({
+                ...input,
+                description: descriptionValue,
+            });
+            setDescriptionCount(descriptionValue.length);
+            setErrors(validate({
+                ...input,
+                [e.target.name]: e.target.value
+            }));
+        }
+    }
     function handleSubmit(e) {
         e.preventDefault();
         setErrors(
@@ -110,7 +131,7 @@ export default function VideogameCreate() {
                         </div>
                         <div>
                             <input className={styles.input}
-                                placeholder='Image URL'
+                                placeholder='Image URL (optional)'
                                 type='img'
                                 value={input.image}
                                 name='image'
@@ -124,11 +145,16 @@ export default function VideogameCreate() {
                                 type='text'
                                 value={input.description}
                                 name='description'
-                                onChange={(e) => handleChange(e)}
+                                onChange={(e) => handleDescriptionChange(e)}
                             />
-                            {errors.description && (
-                                <p className={styles.error}>{errors.description}</p>
-                            )}
+                            <div className={descriptionCount === 0 ? `${styles.nozero}` : `${styles.character_count}`}>
+                                {descriptionCount}/500 caracteres
+                            </div>
+                            <div>
+                                {errors.description && (
+                                    <p className={styles.error}>{errors.description}</p>
+                                )}
+                            </div>
                         </div>
                         <div className={styles.released_container}>
                             <label className={styles.released}> Released </label>
@@ -136,6 +162,8 @@ export default function VideogameCreate() {
                                 type='date'
                                 value={input.released}
                                 name='released'
+                                min='1958-10-01'
+                                max={new Date().toISOString().split('T')[0]} //Bloquea las fechas hasta hoy
                                 onChange={(e) => handleChange(e)}
                             />
                             <label className={styles.rating}>Rating </label>
@@ -146,8 +174,17 @@ export default function VideogameCreate() {
                                 min={0}
                                 max={5}
                                 name='rating'
+                                pattern="\d+" // Acepta solo números enteros
                                 onChange={(e) => handleChange(e)}
                             />
+                        </div>
+                        <div className={styles.errors_rr}>
+                            {errors.released && (
+                                <p className={styles.error}>{errors.released}</p>
+                            )}
+                            {errors.rating && (
+                                <p className={`${styles.error} ${styles.error_rating}`}>{errors.rating}</p>
+                            )}
                         </div>
                         <div className={styles.genres_container}>
                             <select className={styles.genres_input} onChange={(e) => handleSelectGenre(e)}>
@@ -190,7 +227,7 @@ export default function VideogameCreate() {
                         )}
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

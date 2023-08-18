@@ -35,7 +35,7 @@ export function getDetail(id) {
                     payload: detail.data
                 })
             } catch (error) {
-                console.log(error)
+                alert('Game not exist 😕')
             }
         }
     }
@@ -46,21 +46,29 @@ export function getDetail(id) {
 
 export function getGenres() {
     return async function (dispatch) {
-        var json = await axios.get('/api/genre'); //ver si le pongo ,{}
-        return dispatch({
-            type: 'GET_GENRES',
-            payload: json.data
-        })
+        try {
+            var json = await axios.get('/api/genre');
+            return dispatch({
+                type: 'GET_GENRES',
+                payload: json.data
+            })
+        } catch (error) {
+            alert('Game not found 😕');
+        }
     }
 };
 
 export function getPlatforms() {
     return async function (dispatch) {
-        const info = await axios.get('/api/platforms');
-        dispatch({
-            type: 'GET_PLATFORMS',
-            payload: info.data
-        })
+        try {
+            const info = await axios.get('/api/platforms');
+            dispatch({
+                type: 'GET_PLATFORMS',
+                payload: info.data
+            })
+        } catch (error) {
+            alert('Game not found 😕');
+        }
     }
 };
 
@@ -103,3 +111,18 @@ export function orderByRating(payload) {
         payload
     }
 }
+
+// export const deleteGame = (id) => {
+//     return async (dispatch) => {
+//         try {
+//             // Realiza la solicitud para eliminar el juego en el servidor
+//             await axios.delete(`/api/videogame/${id}`);
+//             dispatch({
+//                 type: 'DELETE_GAME',
+//                 payload: id,
+//             });
+//         } catch (error) {
+//             console.error('Error deleting game:', error);
+//         }
+//     };
+// };
