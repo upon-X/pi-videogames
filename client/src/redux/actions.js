@@ -3,7 +3,7 @@ import axios from 'axios';
 //conexion entre front y back
 export function getVideogames() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3001/api/videogame')
+        var json = await axios.get('/api/videogame')
         return dispatch({
             type: 'GET_VIDEOGAMES',
             payload: json.data
@@ -14,7 +14,7 @@ export function getVideogames() {
 export function getVideogameName(name) {
     return async function (dispatch) {
         try {
-            var json = await axios.get(`http://localhost:3001/api/videogame?name=` + name);
+            var json = await axios.get(`/api/videogame?name=` + name);
             return dispatch({
                 type: 'GET_VIDEOGAME_NAME',
                 payload: json.data  //es lo q devuelve la ruta una vez q le asigno algo por name
@@ -29,7 +29,7 @@ export function getDetail(id) {
     if (id) {
         return async function (dispatch) {
             try {
-                const detail = await axios.get(`http://localhost:3001/api/videogame/${id}`);
+                const detail = await axios.get(`/api/videogame/${id}`);
                 dispatch({
                     type: 'GET_DETAIL',
                     payload: detail.data
@@ -46,7 +46,7 @@ export function getDetail(id) {
 
 export function getGenres() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3001/api/genre'); //ver si le pongo ,{}
+        var json = await axios.get('/api/genre'); //ver si le pongo ,{}
         return dispatch({
             type: 'GET_GENRES',
             payload: json.data
@@ -56,7 +56,7 @@ export function getGenres() {
 
 export function getPlatforms() {
     return async function (dispatch) {
-        const info = await axios.get('http://localhost:3001/api/platforms');
+        const info = await axios.get('/api/platforms');
         dispatch({
             type: 'GET_PLATFORMS',
             payload: info.data
@@ -66,7 +66,7 @@ export function getPlatforms() {
 
 export function postVideogame(payload) {
     return async function (dispatch) {
-        const response = await axios.post('http://localhost:3001/api/videogame', payload);
+        const response = await axios.post('/api/videogame', payload);
         return response;
     }
 }

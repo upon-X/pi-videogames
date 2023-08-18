@@ -27,13 +27,17 @@
     color: whitesmoke;
     font-family: var(--FFComfortaa);
     height: 450px;
-    /*Para que las cards no sean unas mas grandes que otras*/
-    transition: ease-in-out 0.15s;
+    transition: transform ease-in-out 0.15s, scale ease-in-out 0.15s;
 }
 
 .card_game:hover {
+    transform: translateY(-12px) scale(1.05);
     opacity: 1;
-    scale: 1.05;
+}
+
+.card_game:hover::before {
+    z-index: -1;
+    transform: translateY(12px);
 }
 
 .title_name {
