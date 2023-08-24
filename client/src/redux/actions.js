@@ -43,6 +43,11 @@ export function getDetail(id) {
         type: 'RESET',
     }
 };
+export const resetDetail = () => {
+    return {
+        type: 'RESET_DETAIL',
+    };
+};
 
 export function getGenres() {
     return async function (dispatch) {

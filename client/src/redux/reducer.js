@@ -124,6 +124,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 platforms: action.payload
             }
+        case 'RESET_DETAIL':
+            return {
+                ...state,
+                detail: {}, // Restablecer los detalles a un objeto vacío
+            };
         // case 'DELETE_GAME':
         //     // Filtra los juegos en el state para eliminar el del ID dado
         //     const updatedVideogames = state.videogames.filter(game => game.id !== action.payload);

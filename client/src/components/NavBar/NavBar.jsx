@@ -12,7 +12,6 @@ export default function Navbar({ handleFilterGenre, handleFilterCreated, handleR
     function handleClick(e) {
         e.preventDefault();
         dispatch(getVideogames());
-        
     };
     return (
         <div className={styles.navbar}>

@@ -7,7 +7,7 @@ import styles from './searchBar.module.css'
 export default function SearchBar() {
     const dispatch = useDispatch()
     const [name, setName] = useState('')
-
+    // const [currentPage, setCurrentPage] = useState(1) // Seguimiento de la pagina actual, 1 porque es la primera
     function handleInputChange(e) {
         e.preventDefault()
         setName(e.target.value);
@@ -17,8 +17,9 @@ export default function SearchBar() {
         if (!name.length) {
             alert('Please enter a videogame');
         } else {
-            dispatch(getVideogameName(name));//name es lo q está escribiendo el usuario
+            dispatch(getVideogameName(name));
             setName('');
+            // setCurrentPage(1);
         }
     };
     return (

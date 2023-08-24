@@ -9,6 +9,7 @@ export default function VideogameCreate() {
     const dispatch = useDispatch();
     const genre = useSelector((state) => state.genres); //Usamos useSelector para sacar partes especificas del Redux store
     const platform = useSelector((state) => state.platforms)
+    const gameNames = useSelector((state) => state.videogames.map(game => game.name));
     const [descriptionCount, setDescriptionCount] = useState(0);
     const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
@@ -23,8 +24,8 @@ export default function VideogameCreate() {
     function handleChange(e) {
         setInput({
             ...input,
-            [e.target.name]: e.target.value // name se refiere a cada casillero q tiene que llenar, por eso en el form aparece name en todos
-        })                              // El value son los inputs de arriba que van a ir cambiando de valor a medida q la persona ingrese los datos
+            [e.target.name]: e.target.value
+        })
         setErrors(validate({
             ...input,
             [e.target.name]: e.target.value
@@ -48,6 +49,10 @@ export default function VideogameCreate() {
                 ...input,
                 platforms: [...input.platforms, selectedPlatforms]
             })
+            setErrors(validate({
+                ...input,
+                platforms: [...input.platforms, selectedPlatforms]
+            }));
         } else {
             window.alert('Ya esta agregado la plataforma')
         }
@@ -86,7 +91,8 @@ export default function VideogameCreate() {
                 [e.target.name]: e.target.value,
             })
         );
-        if (Object.keys(errors).length === 0) {
+        console.log(input, errors)
+        if (Object.keys(errors).length === 0 && input.name && input.description && input.released && input.genres && input.platforms) {
             dispatch(postVideogame(input));
             alert('Videogame created 👌');
             setInput({ //seteo todo mi input en cero
@@ -103,11 +109,30 @@ export default function VideogameCreate() {
             return;
         }
     }
+    function handleNameChange(e) {
+        const newName = e.target.value;
+        if (gameNames.includes(newName)) {
+            setErrors({
+                ...errors,
+                name: 'This name is already in use, choose another',
+            });
+        } else {
+            setErrors(
+                validate({
+                    ...input,
+                    [e.target.name]: e.target.value,
+                })
+            );
+        }
+        setInput({
+            ...input,
+            name: newName,
+        });
+    }
     useEffect(() => {
         dispatch(getGenres());
-    }, [dispatch]);
-    useEffect(() => {
         dispatch(getPlatforms());
+        validate(input)
     }, [dispatch]);
 
     return (
@@ -123,7 +148,9 @@ export default function VideogameCreate() {
                                 type='text'
                                 value={input.name}
                                 name='name'
-                                onChange={(e) => handleChange(e)}
+                                minLength={2}
+                                maxLength={30}
+                                onChange={(e) => handleNameChange(e)}
                             />
                             {errors.name && (
                                 <p className={styles.error}>{errors.name}</p>
@@ -231,6 +258,3 @@ export default function VideogameCreate() {
         </>
     )
 }
-
-
-

@@ -30,6 +30,7 @@ export default function Home() {
     useEffect(() => {
         dispatch(getVideogames()); // Dispatch para obtener los VGs
     }, [dispatch]);
+
     if (!allVideogames.length) return <Loader />; // Renderiza el loader hasta que se habilite la data del VG
     // Handle para ordenar por nombres
     function handleSort(e) {
