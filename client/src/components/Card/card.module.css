@@ -10,6 +10,8 @@
     border: rgba(0, 0, 0, 0.7) 3px solid;
     width: 270px;
     height: 210px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .card_game:hover .card_image {
