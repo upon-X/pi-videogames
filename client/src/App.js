@@ -9,7 +9,7 @@ import About from "./components/About/About";
 // import NavBar from "./components/NavBar/NavBar"; 
 
 import axios from 'axios'
-axios.defaults.baseURL= 'http://localhost:3001/'
+axios.defaults.baseURL= 'http://localhost:6550/'
 
 
 function App() {

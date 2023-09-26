@@ -40,7 +40,7 @@ export function getDetail(id) {
         }
     }
     return {
-        type: 'RESET',
+        type: 'RESET_DETAIL',
     }
 };
 export const resetDetail = () => {
